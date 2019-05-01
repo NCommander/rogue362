@@ -485,7 +485,12 @@ extern coord delta;				/* Change indicated to get_dir() */
 
 extern coord ch_ret;
 extern char countch,direction,newcount;
-extern struct delayed_action d_list;
+extern struct delayed_action  {
+    int d_type;
+    int (*d_func)();
+    int d_arg;
+    int d_time;
+} d_list[20];
 extern int between;
 extern int num_checks;
 extern char lvl_mons[27],wand_mons[27];
